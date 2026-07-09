@@ -21,7 +21,7 @@ import CountryDetailsService from "./services/CountryDetailsService.js";
 
 let selectedCountryDetails = null;
 const detailsService = new CountryDetailsService(
-  "rc_live_8c918b0d4cdf41e9b945fb461d9fc49e",
+  "rc_live_15b0a4f088574e84b7e206dd78a9a95d",
 );
 
 // ------------------- COUNTRY DROPDOWN ----------------
