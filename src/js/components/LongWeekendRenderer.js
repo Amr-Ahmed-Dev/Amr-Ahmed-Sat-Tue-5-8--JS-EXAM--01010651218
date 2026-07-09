@@ -1,5 +1,5 @@
 // src/js/components/LongWeekendRenderer.js
-import {wireHeartButton} from "../utils/Helpers.js";
+import {wireHeartButton} from "../utils/helpers.js";
 
 export default class LongWeekendRenderer {
   constructor(contentContainerId, emptyStateId) {

@@ -1,5 +1,5 @@
 // components/MyPlansRenderer.js
-import plansStore from "../store/PlansStore.js";
+import plansStore from "../store/plansstore.js";
 import toast from "./ToastManager.js";
 import {updatePlansIndicators} from "../utils/helpers.js";
 

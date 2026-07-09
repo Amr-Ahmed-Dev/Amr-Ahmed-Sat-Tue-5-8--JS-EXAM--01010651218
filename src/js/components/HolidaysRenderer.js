@@ -1,4 +1,4 @@
-import {wireHeartButton} from "../utils/Helpers.js";
+import {wireHeartButton} from "../utils/helpers.js";
 
 export default class HolidaysRenderer {
   constructor(contentContainerId, emptyStateId) {

@@ -1,7 +1,4 @@
 // store/PlansStore.js
-//
-// Responsible for saving/removing/reading saved plans, persisted in
-// localStorage so they survive a page reload.
 
 class PlansStore {
   constructor(storageKey = "wanderlust_saved_plans") {

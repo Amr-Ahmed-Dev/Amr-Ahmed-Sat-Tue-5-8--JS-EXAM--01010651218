@@ -1,4 +1,4 @@
-import plansStore from "../store/PlansStore.js";
+import plansStore from "../store/plansstore.js";
 import toast from "../components/ToastManager.js";
 
 export function wireHeartButton({btn, iconSelector = "i", plan, cardEl}) {
