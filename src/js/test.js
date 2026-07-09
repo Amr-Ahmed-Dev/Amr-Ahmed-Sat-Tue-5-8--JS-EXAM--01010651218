@@ -1,5 +1,5 @@
 // ------------------- NAVIGATION -------------------
-import Navigation from "./components/navigation.js";
+import Navigation from "./components/Navigation.js";
 const appNavigation = new Navigation();
 
 // =====================================================
