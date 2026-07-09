@@ -84,9 +84,12 @@ export default class MyPlansRenderer {
         <i class="fa-solid fa-compass"></i> Start Exploring
       </button>
     `;
+    wrapper;
     wrapper
       .querySelector("#start-exploring-btn-inner")
-      .addEventListener("click", () => this.appNavigation.showDashboard());
+      .addEventListener("click", () =>
+        this.appNavigation.switchView("dashboard"),
+      );
     return wrapper;
   }
 

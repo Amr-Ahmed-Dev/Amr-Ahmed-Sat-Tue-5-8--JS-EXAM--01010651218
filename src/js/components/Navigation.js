@@ -3,7 +3,9 @@ export default class Navigation {
     this.pageTitle = document.getElementById("page-title");
     this.pageSubtitle = document.getElementById("page-subtitle");
     this.navButtons = document.querySelectorAll("[data-view]");
-    this.goDashboardButtons = document.querySelectorAll("[id^='go-dashboard']");
+    this.goDashboardButtons = document.querySelectorAll(
+      "[id^='go-dashboard' i]",
+    );
     this.viewConfigs = {
       dashboard: {
         title: "Dashboard",
