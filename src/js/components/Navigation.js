@@ -39,20 +39,43 @@ export default class Navigation {
     };
 
     this.initEvents();
+    this.initRouting();
   }
+
   initEvents() {
     this.navButtons.forEach((btn) => {
-      btn.addEventListener("click", () => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
         const viewName = btn.getAttribute("data-view");
         this.switchView(viewName);
       });
     });
     this.goDashboardButtons.forEach((btn) => {
-      btn.addEventListener("click", () => this.switchView("dashboard"));
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        this.switchView("dashboard");
+      });
     });
   }
 
-  switchView(viewName) {
+  initRouting() {
+    const initialView = this._getViewFromURL();
+    if (initialView && this.viewConfigs[initialView]) {
+      this.switchView(initialView, false);
+    }
+
+    window.addEventListener("popstate", () => {
+      const viewName = this._getViewFromURL() || "dashboard";
+      this.switchView(viewName, false);
+    });
+  }
+
+  _getViewFromURL() {
+    const hash = window.location.hash.replace("#", "");
+    return hash && this.viewConfigs[hash] ? hash : null;
+  }
+
+  switchView(viewName, updateURL = true) {
     const config = this.viewConfigs[viewName];
     if (!config) return;
     this.resetAllViews();
@@ -62,6 +85,10 @@ export default class Navigation {
     if (targetBtn) targetBtn.classList.add("active");
     if (this.pageTitle) this.pageTitle.textContent = config.title;
     if (this.pageSubtitle) this.pageSubtitle.textContent = config.subtitle;
+
+    if (updateURL) {
+      history.pushState({view: viewName}, "", `#${viewName}`);
+    }
   }
 
   resetAllViews() {

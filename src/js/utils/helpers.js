@@ -52,5 +52,5 @@ export function updatePlansIndicators() {
   if (filterAll) filterAll.textContent = plansStore.count("all");
   if (filterHoliday) filterHoliday.textContent = plansStore.count("holiday");
   if (filterEvent) filterEvent.textContent = plansStore.count("event");
-  if (filterLw) filterLw.textContent = plansStore.count("longweekend");
+  if (filterLw) filterLw.textContent = plansStore.count("long-weekends");
 }
