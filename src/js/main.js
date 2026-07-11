@@ -3,6 +3,43 @@
 // =====================================================
 import Navigation from "./components/Navigation.js";
 const appNavigation = new Navigation();
+// ------------------- Mobile Sidebar Toggle ------------------- //
+class MobileSidebarToggle {
+  constructor(menuBtnId, sidebarId, overlayId) {
+    this.menuBtn = document.getElementById(menuBtnId);
+    this.sidebar = document.getElementById(sidebarId);
+    this.overlay = document.getElementById(overlayId);
+
+    this._bindEvents();
+  }
+
+  _bindEvents() {
+    if (this.menuBtn) {
+      this.menuBtn.addEventListener("click", () => this._openSidebar());
+    }
+    if (this.overlay) {
+      this.overlay.addEventListener("click", () => this._closeSidebar());
+    }
+  }
+
+  _openSidebar() {
+    this.sidebar.classList.add("open");
+    this.overlay.classList.remove("hidden"); // ⬅️ السطر الجديد المهم
+    this.overlay.classList.add("active");
+  }
+
+  _closeSidebar() {
+    this.sidebar.classList.remove("open");
+    this.overlay.classList.remove("active");
+    this.overlay.classList.add("hidden"); // ⬅️ نرجعه مخفي تاني لما نقفل
+  }
+}
+
+const mobileSidebarToggle = new MobileSidebarToggle(
+  "mobile-menu-btn",
+  "sidebar",
+  "sidebar-overlay",
+);
 
 // =====================================================
 // ------------------- COUNTRY MODEL -------------------
